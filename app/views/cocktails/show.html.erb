@@ -3,8 +3,27 @@
 
 <%= link_to('Add a new Dose', new_cocktail_dose_path(@cocktail), {class: "btn btn-primary"}) %>
 
+<hr>
+
+<div>
 <% @doses.each do |dose| %>
 
 <h2><%= dose.description %></h2>
+<%= button_to('Delete this Dose', dose_path(dose), { :method => :delete, class: "btn btn-primary"}) %>
 
+
+<% end %>
+</div>
+
+<hr>
+
+<div>
+  <%= link_to('Back to Overview', cocktails_path, {class: "btn btn-primary"}) %>
+</div>
+
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.submit "add a new Dose", class: "btn btn-primary" %>
 <% end %>
