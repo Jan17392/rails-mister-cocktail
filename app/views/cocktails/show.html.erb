@@ -1,10 +1,6 @@
 <h1>Cocktails#show</h1>
 <p>Find me in app/views/cocktails/show.html.erb</p>
 
-<%= link_to('Add a new Dose', new_cocktail_dose_path(@cocktail), {class: "btn btn-primary"}) %>
-
-<hr>
-
 <div>
 <% @doses.each do |dose| %>
 
